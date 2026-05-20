@@ -2,6 +2,7 @@ export interface Profile {
   name: string;
   emoji: string;
   createdAt: string;
+  local?: boolean; // profil créé localement (frère/sœur), pas d'accès aux amis distants
 }
 
 const PROFILES_KEY = "pythonkids_profiles";
@@ -91,9 +92,22 @@ export function ensureCurrentProfileListed(): void {
 export function addProfile(name: string, emoji: string): boolean {
   const profiles = getProfiles();
   if (profiles.find((p) => p.name.toLowerCase() === name.toLowerCase())) return false;
-  profiles.push({ name, emoji, createdAt: new Date().toISOString() });
+  profiles.push({ name, emoji, createdAt: new Date().toISOString(), local: true });
   saveProfiles(profiles);
   return true;
+}
+
+export function isCurrentProfileLocal(): boolean {
+  if (typeof window === "undefined") return false;
+  const name = getCurrentProfileName();
+  if (!name) return false;
+  try {
+    const profiles = getProfiles();
+    const profile = profiles.find((p) => p.name === name);
+    return profile?.local === true;
+  } catch {
+    return false;
+  }
 }
 
 export function switchProfile(name: string): void {
