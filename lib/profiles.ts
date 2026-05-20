@@ -125,3 +125,22 @@ export function deleteProfile(name: string): void {
   saveProfiles(profiles);
   localStorage.removeItem(SNAPSHOT_PREFIX + name);
 }
+
+export function copyCurrentProfileToAll(): number {
+  const current = getCurrentProfileName();
+  if (!current) return 0;
+
+  // Capture les données actuelles du profil actif
+  const snapshot: Record<string, string> = {};
+  for (const key of PROFILE_KEYS) {
+    const val = localStorage.getItem(key);
+    if (val !== null) snapshot[key] = val;
+  }
+
+  // Écrit ce snapshot sur tous les autres profils
+  const others = getProfiles().filter((p) => p.name !== current);
+  for (const profile of others) {
+    localStorage.setItem(SNAPSHOT_PREFIX + profile.name, JSON.stringify(snapshot));
+  }
+  return others.length;
+}

@@ -9,6 +9,7 @@ import {
   addProfile,
   switchProfile,
   deleteProfile,
+  copyCurrentProfileToAll,
   type Profile,
 } from "@/lib/profiles";
 
@@ -22,6 +23,8 @@ export default function ProfilesPage() {
   const [newEmoji, setNewEmoji] = useState("🐍");
   const [editMode, setEditMode] = useState(false);
   const [error, setError] = useState("");
+  const [showCopyConfirm, setShowCopyConfirm] = useState(false);
+  const [copyDone, setCopyDone] = useState(false);
 
   useEffect(() => {
     ensureCurrentProfileListed();
@@ -122,12 +125,63 @@ export default function ProfilesPage() {
       </div>
 
       {profiles.length > 1 && (
-        <button
-          onClick={() => setEditMode((v) => !v)}
-          className="text-xs text-gray-400 dark:text-slate-500 hover:text-red-500 dark:hover:text-red-400 transition-colors underline"
-        >
-          {editMode ? "✓ Terminé" : "Gérer les profils"}
-        </button>
+        <div className="flex flex-col items-center gap-3">
+          {!editMode && !copyDone && (
+            <button
+              onClick={() => setShowCopyConfirm(true)}
+              className="text-xs text-purple-500 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 transition-colors underline"
+            >
+              📋 Copier ma progression sur tous les profils
+            </button>
+          )}
+          {copyDone && (
+            <p className="text-xs text-green-600 dark:text-green-400 font-semibold">
+              ✓ Progression copiée sur tous les profils !
+            </p>
+          )}
+          <button
+            onClick={() => setEditMode((v) => !v)}
+            className="text-xs text-gray-400 dark:text-slate-500 hover:text-red-500 dark:hover:text-red-400 transition-colors underline"
+          >
+            {editMode ? "✓ Terminé" : "Gérer les profils"}
+          </button>
+        </div>
+      )}
+
+      {showCopyConfirm && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 px-6">
+          <div className="bg-white dark:bg-slate-800 rounded-2xl p-6 w-full max-w-sm shadow-2xl">
+            <div className="text-4xl text-center mb-3">⚠️</div>
+            <h2 className="text-lg font-extrabold text-gray-800 dark:text-white mb-2 text-center">
+              Copier ma progression ?
+            </h2>
+            <p className="text-sm text-gray-500 dark:text-slate-400 text-center mb-4">
+              Ceci va remplacer la progression de{" "}
+              <span className="font-bold text-gray-700 dark:text-white">
+                {profiles.filter((p) => p.name !== currentName).map((p) => p.name).join(", ")}
+              </span>{" "}
+              par la tienne. Cette action est irréversible.
+            </p>
+            <div className="flex gap-2">
+              <button
+                onClick={() => setShowCopyConfirm(false)}
+                className="flex-1 py-2.5 rounded-xl border-2 border-gray-200 dark:border-slate-600 text-sm font-bold text-gray-500 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 transition-colors"
+              >
+                Annuler
+              </button>
+              <button
+                onClick={() => {
+                  copyCurrentProfileToAll();
+                  setShowCopyConfirm(false);
+                  setCopyDone(true);
+                }}
+                className="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-pink-500 text-white text-sm font-bold hover:opacity-90 transition-opacity"
+              >
+                Confirmer
+              </button>
+            </div>
+          </div>
+        </div>
       )}
 
       {adding && (
