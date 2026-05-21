@@ -1,5 +1,7 @@
 import AppHeader from "@/components/AppHeader";
 import SnakeGame from "@/components/SnakeGame";
+import MemoryGame from "@/components/MemoryGame";
+import WordlePython from "@/components/WordlePython";
 import Link from "next/link";
 
 export default function DetentePage() {
@@ -23,8 +25,36 @@ export default function DetentePage() {
           </p>
         </div>
 
-        <div className="bg-white dark:bg-slate-800 rounded-3xl border border-purple-100 dark:border-slate-700 p-6 shadow-sm">
+        {/* Snake */}
+        <div className="bg-white dark:bg-slate-800 rounded-3xl border border-purple-100 dark:border-slate-700 p-6 shadow-sm mb-6">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-xl">🐍</span>
+            <h2 className="font-extrabold text-gray-800 dark:text-white">Snake Python</h2>
+            <span className="ml-auto text-xs text-gray-400 dark:text-slate-500">Score → 💎</span>
+          </div>
           <SnakeGame />
+        </div>
+
+        {/* Memory */}
+        <div className="bg-white dark:bg-slate-800 rounded-3xl border border-indigo-100 dark:border-slate-700 p-6 shadow-sm mb-6">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-xl">🃏</span>
+            <h2 className="font-extrabold text-gray-800 dark:text-white">Memory Python</h2>
+            <span className="ml-auto text-xs text-gray-400 dark:text-slate-500">Paires → 💎</span>
+          </div>
+          <MemoryGame />
+        </div>
+
+        {/* Wordle */}
+        <div className="bg-white dark:bg-slate-800 rounded-3xl border border-green-100 dark:border-slate-700 p-6 shadow-sm">
+          <div className="flex items-center gap-2 mb-4">
+            <span className="text-xl">🟩</span>
+            <div>
+              <h2 className="font-extrabold text-gray-800 dark:text-white">Wordle Python</h2>
+              <p className="text-xs text-gray-400 dark:text-slate-500">Devine le mot Python du jour · 6 essais · +💎</p>
+            </div>
+          </div>
+          <WordlePython />
         </div>
 
         <div className="mt-6 text-center">

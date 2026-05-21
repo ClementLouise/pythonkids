@@ -34,7 +34,27 @@
       "Bash(powershell -Command \"Get-Process -Id 27840 -ErrorAction SilentlyContinue | Select-Object Id, ProcessName, Path | Format-List\")",
       "Bash(powershell *)",
       "Bash(gh auth *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(gh repo *)",
+      "Bash(Get-ChildItem *)",
+      "Bash(curl -s http://localhost:3000/profiles)",
+      "Bash(curl -s http://localhost:3000/friends)",
+      "Bash(curl -s http://localhost:3000/api/friends?username=test)",
+      "Bash(curl -s http://localhost:3000/profile)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/duel)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/leaderboard)",
+      "Bash(git push *)",
+      "Bash(dir app *)",
+      "Bash(dir components *)",
+      "Bash(python -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\('scripts', {}\\), indent=2\\)\\)\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "Bash(python scripts/add_exercises.py)",
+      "Bash(curl *)",
+      "Bash(python scripts/add_levels.py)",
+      "Bash(grep -n \"^\\\\\"\\\\\"\\\\\"$\" scripts/add_levels.py)",
+      "Bash(python -c ' *)"
     ]
   }
 }

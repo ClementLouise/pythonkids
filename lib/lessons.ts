@@ -232,21 +232,61 @@ export const LEVELS_DATA: Record<string, LevelData> = {
         title: "Les listes",
         description: "Une liste, c'est comme un sac à dos dans lequel tu ranges plusieurs choses !\nAu lieu de créer une variable pour chaque fruit, tu les mets tous dans une seule liste entre crochets [ ].\nTu peux demander le premier élément (position 0), le dernier (-1), ou parcourir toute la liste avec for !",
         code: 'fruits = ["pomme", "banane", "cerise", "kiwi"]\n\nprint(f"Nombre de fruits : {len(fruits)}")\nprint(f"Premier fruit : {fruits[0]}")\nprint(f"Dernier fruit : {fruits[-1]}")\n\nfor fruit in fruits:\n    print(f"🍎 {fruit}")',
+        exercise: {
+          instruction: "Crée une liste animaux avec [\"chat\", \"chien\", \"lapin\"] et affiche chaque animal sur une ligne.",
+          starterCode: "animaux = [\"chat\", \"chien\", \"lapin\"]\n# Affiche chaque animal avec une boucle\n",
+          expectedOutput: "chat\nchien\nlapin",
+          hints: [
+            "Utilise une boucle for pour parcourir la liste.",
+            "Dans la boucle : for animal in animaux: puis print(animal)",
+            "for animal in animaux:\n    print(animal)",
+          ],
+        },
       },
       {
         title: "Les fonctions",
         description: "Une fonction, c'est comme une recette de cuisine : tu l'écris une fois, et tu peux l'utiliser autant de fois que tu veux !\nTu crées une fonction avec def, tu lui donnes un nom et entre parenthèses tu mets les paramètres dont elle a besoin.\nPlus besoin de réécrire le même code !",
         code: 'def saluer(prenom):\n    print(f"Bonjour {prenom} ! 👋")\n    print(f"Bienvenue sur PythonKids !")\n\ndef calculer(a, b):\n    return a + b\n\nsaluer("Alice")\nsaluer("Bob")\n\nresultat = calculer(10, 5)\nprint(f"10 + 5 = {resultat}")',
+        exercise: {
+          instruction: "Écris une fonction double(n) qui retourne n × 2. Affiche double(7).",
+          starterCode: "# Crée la fonction double\n",
+          expectedOutput: "14",
+          hints: [
+            "Une fonction se crée avec def nom(paramètre): et le corps indenté.",
+            "Utilise return pour renvoyer la valeur calculée.",
+            "def double(n):\n    return n * 2\nprint(double(7))",
+          ],
+        },
       },
       {
         title: "Boucle while et logique",
         description: "On combine la boucle while avec les opérateurs logiques and, or, not.\nand : les DEUX conditions doivent être vraies\nor : au moins UNE doit être vraie\nnot : inverse la condition (True devient False)\nCes outils permettent de créer des règles complexes facilement !",
         code: 'age = 14\na_carte_etudiant = True\n\nif age < 18 and a_carte_etudiant:\n    print("✅ Tarif réduit !")\nelse:\n    print("Prix normal")\n\nprefere_pizza = False\nprefere_pates = True\n\nif prefere_pizza or prefere_pates:\n    print("On mange italien ce soir 🍕")\n\nest_ferme = False\nif not est_ferme:\n    print("Le magasin est ouvert 🏪")',
+        exercise: {
+          instruction: "Affiche 'Accès autorisé' si age >= 12 ET has_code est True, sinon 'Refusé'.",
+          starterCode: "age = 14\nhas_code = True\n# Affiche le bon message\n",
+          expectedOutput: "Accès autorisé",
+          hints: [
+            "Utilise une condition if avec l'opérateur and entre les deux conditions.",
+            "if age >= 12 and has_code: ...",
+            "if age >= 12 and has_code:\n    print(\"Accès autorisé\")\nelse:\n    print(\"Refusé\")",
+          ],
+        },
       },
       {
         title: "Les tuples",
         description: "Un tuple ressemble à une liste, mais il est immuable : une fois créé, on ne peut plus le modifier !\nOn l'écrit avec des parenthèses ( ) au lieu de crochets [ ].\nLes tuples sont parfaits pour stocker des données fixes, comme des coordonnées ou des couleurs RGB.",
         code: '# Un tuple de coordonnées\npoint = (10, 20)\nprint(f"x = {point[0]}, y = {point[1]}")\n\n# Couleurs RGB\nrouge = (255, 0, 0)\nvert  = (0, 255, 0)\nbleu  = (0, 0, 255)\n\ncouleurs = [("Rouge", rouge), ("Vert", vert), ("Bleu", bleu)]\nfor nom, rgb in couleurs:\n    print(f"{nom} : R={rgb[0]}, G={rgb[1]}, B={rgb[2]}")\n\n# Dépackage de tuple\nx, y = point\nprint(f"Coordonnées : x={x}, y={y}")',
+        exercise: {
+          instruction: "Crée un tuple position avec (3, 7) et affiche : x=3, y=7",
+          starterCode: "# Crée le tuple et affiche les coordonnées\n",
+          expectedOutput: "x=3, y=7",
+          hints: [
+            "Un tuple se crée avec des parenthèses : (valeur1, valeur2)",
+            "Accède aux éléments avec position[0] pour x et position[1] pour y.",
+            "position = (3, 7)\nprint(f\"x={position[0]}, y={position[1]}\")",
+          ],
+        },
       },
       {
         title: "Mini-projet : Jeu de devinette",
@@ -286,21 +326,61 @@ export const LEVELS_DATA: Record<string, LevelData> = {
         title: "Gestion des erreurs",
         description: "Tout le monde fait des erreurs en codant — même les pros !\nAvec try/except, ton programme ne plante plus quand quelque chose se passe mal.\ntry veut dire 'essaie ce code'.\nSi ça foire, except attrape l'erreur et affiche un message sympa au lieu de tout crasher.",
         code: 'def diviser(a, b):\n    try:\n        resultat = a / b\n        print(f"{a} ÷ {b} = {resultat}")\n    except ZeroDivisionError:\n        print("❌ Impossible de diviser par zéro !")\n    except TypeError:\n        print("❌ Il faut des nombres !")\n\ndiviser(10, 2)\ndiviser(10, 0)\ndiviser(10, "cinq")',
+        exercise: {
+          instruction: "Utilise try/except pour afficher 'Erreur : division impossible' si diviseur vaut 0.",
+          starterCode: "diviseur = 0\nnombre = 10\n# Protège la division avec try/except\n",
+          expectedOutput: "Erreur : division impossible",
+          hints: [
+            "Utilise try: pour essayer le code qui peut échouer.",
+            "Dans except ZeroDivisionError: mets le message d'erreur.",
+            "try:\n    print(nombre / diviseur)\nexcept ZeroDivisionError:\n    print(\"Erreur : division impossible\")",
+          ],
+        },
       },
       {
         title: "Le débogage",
         description: "Déboguer, c'est trouver et corriger les erreurs dans son code. Ce programme contient 3 bugs ! Lis les messages d'erreur et essaie de les corriger un par un.",
         code: '# 🐛 Ce code contient 3 bugs à corriger !\n# Exécute-le, lis l\'erreur, corrige, recommence.\n\ndef calculer_moyenne(notes):\n    total = 0\n    for note in notes:\n        total = total + note\n    moyenne = total / len(notes\n    return moyenne\n\nmes_notes = [15, 18, 12, 16, 14\nresultat = calculer_moyenne(mes_note)\nprint(f"Ma moyenne : {resultat}/20")',
+        exercise: {
+          instruction: "Calcule et affiche la moyenne de [12, 14, 16] avec sum() et len().",
+          starterCode: "notes = [12, 14, 16]\n# Calcule et affiche la moyenne\n",
+          expectedOutput: "14.0",
+          hints: [
+            "La moyenne = somme / nombre de valeurs.",
+            "sum(notes) donne la somme, len(notes) le nombre d'éléments.",
+            "print(sum(notes) / len(notes))",
+          ],
+        },
       },
       {
         title: "Compréhensions de listes",
         description: "Une compréhension de liste, c'est une façon magique de créer une liste en une seule ligne !\nAu lieu d'écrire une boucle for sur 3 lignes pour remplir une liste, tu l'écris en une ligne entre crochets.\nC'est l'une des fonctionnalités les plus aimées de Python !",
         code: '# Sans compréhension : 4 lignes\ncarres_long = []\nfor i in range(1, 6):\n    carres_long.append(i ** 2)\nprint(f"Ancienne méthode : {carres_long}")\n\n# Avec compréhension : 1 ligne ✨\ncarres = [i ** 2 for i in range(1, 6)]\nprint(f"Compréhension    : {carres}")\n\n# Avec condition : seulement les pairs\npairs = [i for i in range(1, 21) if i % 2 == 0]\nprint(f"Nombres pairs    : {pairs}")',
+        exercise: {
+          instruction: "Crée une liste des cubes de 1 à 5 avec une compréhension de liste.",
+          starterCode: "# Crée la liste des cubes de 1 à 5\n",
+          expectedOutput: "[1, 8, 27, 64, 125]",
+          hints: [
+            "Une compréhension de liste s'écrit : [expression for i in range(...)]",
+            "Pour les cubes, l'expression est i ** 3.",
+            "cubes = [i ** 3 for i in range(1, 6)]\nprint(cubes)",
+          ],
+        },
       },
       {
         title: "Les ensembles (sets)",
         description: "Un ensemble (set) est une collection sans doublons et sans ordre particulier.\nIl est parfait pour éliminer les doublons d'une liste, vérifier rapidement si un élément existe, ou faire des opérations mathématiques comme l'union ou l'intersection.",
         code: '# Créer un set\ncouleurs = {"rouge", "bleu", "vert", "rouge"}\nprint(f"Set (sans doublons) : {couleurs}")\nprint(f"Taille : {len(couleurs)}")\n\n# Éliminer les doublons d\'une liste\nnotes = [15, 18, 12, 15, 16, 18, 12]\nuniques = list(set(notes))\nprint(f"Notes sans doublons : {sorted(uniques)}")\n\n# Union et intersection\nclub_foot = {"Alice", "Bob", "Charlie"}\nclub_info = {"Bob", "Diana", "Charlie"}\nprint(f"Dans les deux clubs : {club_foot & club_info}")',
+        exercise: {
+          instruction: "Supprime les doublons de [3, 1, 4, 1, 5, 9, 2, 6, 5, 3] et affiche-les triés.",
+          starterCode: "nombres = [3, 1, 4, 1, 5, 9, 2, 6, 5, 3]\n# Supprime les doublons et affiche en ordre\n",
+          expectedOutput: "[1, 2, 3, 4, 5, 6, 9]",
+          hints: [
+            "Convertis la liste en set pour supprimer automatiquement les doublons.",
+            "Utilise list(set(...)) pour reconvertir en liste, puis sorted() pour trier.",
+            "print(sorted(list(set(nombres))))",
+          ],
+        },
       },
       {
         title: "Mini-projet : Gestionnaire de scores",
@@ -340,21 +420,61 @@ export const LEVELS_DATA: Record<string, LevelData> = {
         title: "Les modules Python",
         description: "Python est livré avec des boîtes à outils toutes prêtes qu'on appelle des modules !\nTu veux tirer au sort ? Utilise random.\nTu veux faire des maths compliquées ? Utilise math.\nTu veux connaître la date ? Utilise datetime.\nIl suffit d'écrire import au début pour déballer la boîte !",
         code: 'import random\nimport math\nfrom datetime import datetime\n\n# random\nprint("🎲 Nombres aléatoires :")\nfor _ in range(3):\n    print(f"  {random.randint(1, 100)}")\n\n# math\nprint(f"\\n📐 Racine de 144 : {math.sqrt(144)}")\nprint(f"📐 Pi : {math.pi:.4f}")\n\n# datetime\nmaintenant = datetime.now()\nprint(f"\\n📅 Aujourd\'hui : {maintenant.strftime(\'%d/%m/%Y\')}")',
+        exercise: {
+          instruction: "Importe math et affiche la racine carrée de 225.",
+          starterCode: "import math\n# Calcule et affiche la racine carrée de 225\n",
+          expectedOutput: "15.0",
+          hints: [
+            "Le module math contient la fonction sqrt() pour la racine carrée.",
+            "Utilise math.sqrt(valeur).",
+            "print(math.sqrt(225))",
+          ],
+        },
       },
       {
         title: "Algorithmes de tri",
         description: "Un algorithme, c'est une suite d'étapes pour résoudre un problème — comme une recette de cuisine, mais pour l'ordinateur !\nLe tri, c'est un grand classique : comment ranger une liste de nombres dans l'ordre ?\nOn va voir le 'tri à bulles' : on compare deux nombres voisins et on les échange si besoin.",
         code: 'def tri_bulles(liste):\n    n = len(liste)\n    for i in range(n):\n        for j in range(0, n - i - 1):\n            if liste[j] > liste[j + 1]:\n                liste[j], liste[j + 1] = liste[j + 1], liste[j]\n    return liste\n\nnombres = [64, 34, 25, 12, 22, 11, 90]\nprint(f"Avant : {nombres}")\ntrie = tri_bulles(nombres.copy())\nprint(f"Après : {trie}")\n\nprint(f"sorted(): {sorted([64, 34, 25, 12, 22, 11, 90])}")',
+        exercise: {
+          instruction: "Trie [5, 2, 8, 1, 9, 3] dans l'ordre décroissant avec sorted() et affiche-le.",
+          starterCode: "nombres = [5, 2, 8, 1, 9, 3]\n# Trie dans l'ordre décroissant\n",
+          expectedOutput: "[9, 8, 5, 3, 2, 1]",
+          hints: [
+            "sorted() accepte un paramètre reverse=True pour l'ordre décroissant.",
+            "sorted(liste, reverse=True) trie du plus grand au plus petit.",
+            "print(sorted(nombres, reverse=True))",
+          ],
+        },
       },
       {
         title: "Lambda, map et filter",
         description: "Python permet d'écrire des fonctions ultra-courtes appelées fonctions lambda.\nmap() applique une fonction à chaque élément d'une liste.\nfilter() garde uniquement les éléments qui vérifient une condition.\nCombinées aux lambdas, ces fonctions permettent d'écrire du code très élégant en une ligne !",
         code: '# Lambda : mini-fonction anonyme\ndouble = lambda x: x * 2\nprint(f"Double de 7 : {double(7)}")\n\n# map : appliquer à chaque élément\nnombres = [1, 2, 3, 4, 5]\ncarres = list(map(lambda x: x ** 2, nombres))\nprint(f"Carrés : {carres}")\n\n# filter : garder seulement certains éléments\npairs = list(filter(lambda x: x % 2 == 0, nombres))\nprint(f"Pairs : {pairs}")',
+        exercise: {
+          instruction: "Utilise map et une lambda pour tripler chaque nombre de [1, 2, 3, 4, 5].",
+          starterCode: "nombres = [1, 2, 3, 4, 5]\n# Utilise map et lambda pour tripler\n",
+          expectedOutput: "[3, 6, 9, 12, 15]",
+          hints: [
+            "map(fonction, liste) applique la fonction à chaque élément.",
+            "Utilise une lambda : lambda x: x * 3",
+            "print(list(map(lambda x: x * 3, nombres)))",
+          ],
+        },
       },
       {
         title: "La récursivité",
         description: "Une fonction récursive est une fonction qui s'appelle elle-même !\nC'est un concept puissant pour résoudre des problèmes qui se répètent.\nIl faut toujours prévoir un cas de base (condition d'arrêt) pour éviter que ça tourne à l'infini.\nExemple classique : la factorielle. 5! = 5 × 4! = 5 × 4 × 3! = ...",
         code: 'def factorielle(n):\n    if n <= 1:\n        return 1\n    return n * factorielle(n - 1)\n\nfor i in range(1, 8):\n    print(f"{i}! = {factorielle(i)}")\n\n# Fibonacci récursif\ndef fibonacci(n):\n    if n <= 1:\n        return n\n    return fibonacci(n - 1) + fibonacci(n - 2)\n\nfib = [fibonacci(i) for i in range(10)]\nprint(f"\\nFibonacci : {fib}")',
+        exercise: {
+          instruction: "Écris une fonction récursive somme(n) qui calcule 1+2+...+n. Affiche somme(5).",
+          starterCode: "# Écris la fonction somme récursive\n",
+          expectedOutput: "15",
+          hints: [
+            "Une fonction récursive s'appelle elle-même avec un cas de base pour s'arrêter.",
+            "somme(n) = n + somme(n-1), avec somme(0) = 0 comme cas de base.",
+            "def somme(n):\n    if n <= 0:\n        return 0\n    return n + somme(n - 1)\nprint(somme(5))",
+          ],
+        },
       },
       {
         title: "Mini-projet : Jeu de rôle textuel",
@@ -394,16 +514,46 @@ export const LEVELS_DATA: Record<string, LevelData> = {
         title: "Le module collections",
         description: "Le module collections contient des structures de données super utiles !\nCounter compte automatiquement les occurrences.\ndefaultdict crée automatiquement une valeur par défaut pour les clés manquantes.\ndeque est une liste optimisée pour ajouter/supprimer des éléments des deux côtés.",
         code: 'from collections import Counter, defaultdict, deque\n\n# Counter : compter automatiquement\ntexte = "abracadabra"\ncompteur = Counter(texte)\nprint(f"Lettres : {dict(compteur)}")\nprint(f"Les 3 plus fréquentes : {compteur.most_common(3)}")\n\n# defaultdict : pas de KeyError !\nscores = defaultdict(int)\nscores["Alice"] += 100\nscores["Bob"] += 200\nscores["Alice"] += 50\nprint(f"\\nScores : {dict(scores)}")\n\n# deque : file d\'attente efficace\nfile = deque(["Alice", "Bob", "Charlie"])\nfile.append("Diana")\nfile.appendleft("Zara")\nprint(f"\\nFile : {list(file)}")',
+        exercise: {
+          instruction: "Utilise Counter pour compter les lettres de 'banana' et affiche le nombre de 'a'.",
+          starterCode: "from collections import Counter\nmot = 'banana'\n# Compte les lettres et affiche le nombre de 'a'\n",
+          expectedOutput: "3",
+          hints: [
+            "Counter(mot) crée un compteur qui compte automatiquement chaque lettre.",
+            "Accède à la valeur d'une clé comme un dictionnaire : compteur['a']",
+            "compteur = Counter(mot)\nprint(compteur['a'])",
+          ],
+        },
       },
       {
         title: "Les expressions régulières",
         description: "Les expressions régulières (regex) sont un langage pour décrire des motifs dans du texte.\nTu peux trouver tous les emails, les numéros de téléphone, les mots qui commencent par une majuscule, etc.\n. = n'importe quel caractère / \\d = un chiffre / \\w = une lettre ou chiffre / + = un ou plusieurs",
         code: 'import re\n\ntexte = "Contact: alice@python.fr, bob@code.com ou au 06-12-34-56-78"\n\n# Trouver tous les emails\nemails = re.findall(r\'\\w+@\\w+\\.\\w+\', texte)\nprint(f"Emails trouvés : {emails}")\n\n# Trouver le numéro de téléphone\ntel = re.search(r\'\\d{2}-\\d{2}-\\d{2}-\\d{2}-\\d{2}\', texte)\nif tel:\n    print(f"Téléphone : {tel.group()}")\n\n# Remplacer des mots\nphrase = "Python est super et Python est puissant"\nnouvelle = re.sub(r\'Python\', \'🐍 Python\', phrase)\nprint(f"\\nAvec emojis : {nouvelle}")',
+        exercise: {
+          instruction: "Utilise re.findall pour trouver tous les nombres dans la phrase.",
+          starterCode: "import re\ntexte = \'J\'ai 42 pommes, 100 bananes et 7 kiwis\'\n# Trouve tous les nombres\n",
+          expectedOutput: "[\'42\', \'100\', \'7\']",
+          hints: [
+            "re.findall(pattern, texte) retourne une liste de toutes les correspondances.",
+            "Le pattern \\\\d+ correspond à un ou plusieurs chiffres.",
+            "print(re.findall(r\'\\\\d+\', texte))",
+          ],
+        },
       },
       {
         title: "Manipulation avancée des données",
         description: "Quand tu travailles avec des données, Python offre des outils puissants :\n- sorted() avec une clé de tri personnalisée\n- zip() pour combiner deux listes\n- enumerate() pour avoir l'index en même temps\nCes outils sont le quotidien des développeurs Python !",
         code: '# Données : liste de joueurs\njoueurs = [\n    {"nom": "Alice",   "niveau": "Expert",    "score": 1500},\n    {"nom": "Bob",     "niveau": "Débutant",  "score": 300},\n    {"nom": "Charlie", "niveau": "Expert",    "score": 1200},\n    {"nom": "Diana",   "niveau": "Débutant",  "score": 450},\n]\n\n# Trier par score décroissant\ntri = sorted(joueurs, key=lambda j: j["score"], reverse=True)\nprint("Classement :")\nfor i, j in enumerate(tri, 1):\n    print(f"  {i}. {j[\'nom\']} — {j[\'score\']} pts")\n\n# Combiner deux listes avec zip\nprenoms = ["Alice", "Bob", "Charlie"]\nscores  = [1500, 300, 1200]\nfor prenom, score in zip(prenoms, scores):\n    print(f"  {prenom} : {score} pts")',
+        exercise: {
+          instruction: "Trie les élèves par score croissant et affiche uniquement leurs noms.",
+          starterCode: "eleves = [\n    {\"nom\": \"Alice\", \"score\": 85},\n    {\"nom\": \"Bob\",   \"score\": 72},\n    {\"nom\": \"Charlie\", \"score\": 95},\n]\n# Trie par score et affiche les noms\n",
+          expectedOutput: "Bob\nAlice\nCharlie",
+          hints: [
+            "Utilise sorted() avec key= pour préciser le critère de tri.",
+            "key=lambda e: e['score'] trie par la valeur du champ score.",
+            "for e in sorted(eleves, key=lambda e: e['score']):\n    print(e['nom'])",
+          ],
+        },
       },
       {
         title: "Mini-projet : Analyseur de texte",
@@ -414,6 +564,219 @@ export const LEVELS_DATA: Record<string, LevelData> = {
         title: "Mini-projet : Générateur de mots de passe",
         description: "Un générateur de mots de passe sécurisé — un outil vraiment utile !\nOn utilise le module secrets (plus sécurisé que random pour la cryptographie), string pour les caractères disponibles, et on vérifie que le mot de passe respecte les règles de sécurité.",
         code: 'import secrets\nimport string\n\ndef generer_mdp(longueur=12, majuscules=True, chiffres=True, symboles=True):\n    alphabet = string.ascii_lowercase\n    if majuscules: alphabet += string.ascii_uppercase\n    if chiffres:   alphabet += string.digits\n    if symboles:   alphabet += "!@#$%&*"\n    \n    while True:\n        mdp = \'\'.join(secrets.choice(alphabet) for _ in range(longueur))\n        ok = True\n        if majuscules and not any(c.isupper() for c in mdp): ok = False\n        if chiffres and not any(c.isdigit() for c in mdp): ok = False\n        if symboles and not any(c in "!@#$%&*" for c in mdp): ok = False\n        if ok:\n            return mdp\n\nprint("🔐 GÉNÉRATEUR DE MOTS DE PASSE")\nprint("=" * 35)\nfor longueur in [8, 12, 16]:\n    mdp = generer_mdp(longueur)\n    print(f"  {longueur} caractères : {mdp}")',
+      },
+    ],
+  },
+  "6": {
+    id: 6,
+    emoji: "🏗️",
+    name: "Architecte",
+    color: "from-violet-500 to-purple-700",
+    lessons: [
+      {
+        title: "Héritage et polymorphisme",
+        description: "L'héritage permet à une classe d'utiliser les attributs et méthodes d'une autre classe !\nTu crées une classe \"mère\" générale, et des classes \"filles\" spécialisées.\nLe mot-clé super() appelle le constructeur de la classe mère.\nLe polymorphisme : chaque classe peut avoir sa propre version d'une méthode.",
+        code: 'class Vehicule:\n    def __init__(self, marque, couleur):\n        self.marque = marque\n        self.couleur = couleur\n    \n    def description(self):\n        return f"{self.couleur} {self.marque}"\n    \n    def klaxonner(self):\n        return "Beep !"\n\nclass Voiture(Vehicule):\n    def __init__(self, marque, couleur, portes):\n        super().__init__(marque, couleur)\n        self.portes = portes\n    \n    def description(self):\n        return f"Voiture {self.couleur} {self.marque} ({self.portes} portes)"\n    \n    def klaxonner(self):\n        return "Pouet Pouet !"\n\nclass Moto(Vehicule):\n    def klaxonner(self):\n        return "Vroooom !"\n\nvehicules = [\n    Voiture("Renault", "Rouge", 4),\n    Moto("Yamaha", "Noire"),\n    Voiture("Peugeot", "Bleue", 5),\n]\n\nfor v in vehicules:\n    print(f"{v.description()} → {v.klaxonner()}")',
+        exercise: {
+          instruction: "Crée une classe Oiseau qui hérite d'Animal et surcharge parler() pour retourner 'Cui cui !'.\nAffiche le nom puis le cri d'un Oiseau('Tweety').",
+          starterCode: "class Animal:\n    def __init__(self, nom):\n        self.nom = nom\n    def parler(self):\n        return '...'\n\n# Crée Oiseau ici\n",
+          expectedOutput: "Tweety\nCui cui !",
+          hints: [
+            "Une classe hérite avec la syntaxe : class Oiseau(Animal):",
+            "Redéfinis parler() dans Oiseau pour retourner 'Cui cui !'",
+            "class Oiseau(Animal):\n    def parler(self):\n        return 'Cui cui !'\no = Oiseau('Tweety')\nprint(o.nom)\nprint(o.parler())",
+          ],
+        },
+        quiz: {
+          questions: [
+            {
+              question: "Comment une classe Python hérite-t-elle d'une autre ?",
+              options: ["class Enfant inherits Parent:", "class Enfant(Parent):", "class Enfant extends Parent:", "Enfant = class(Parent)"],
+              correct: 1,
+              explanation: "La syntaxe est class NomEnfant(NomParent): — les parenthèses indiquent l'héritage.",
+            },
+            {
+              question: "À quoi sert super().__init__() dans une classe enfant ?",
+              options: ["Supprimer la classe parent", "Appeler le constructeur de la classe parent", "Créer un nouvel objet", "Copier toutes les méthodes"],
+              correct: 1,
+              explanation: "super().__init__() appelle le constructeur de la classe parente pour initialiser les attributs hérités.",
+            },
+          ],
+        },
+      },
+      {
+        title: "Les décorateurs",
+        description: "Un décorateur est une fonction qui enveloppe une autre fonction pour lui ajouter des comportements !\nTu l'appliques avec @nom_decorateur juste avant la définition de la fonction.\nC'est comme ajouter un emballage cadeau à une fonction existante.\nLes frameworks web comme Django et Flask utilisent des décorateurs partout !",
+        code: 'def majuscule(fonction):\n    def wrapper(*args, **kwargs):\n        resultat = fonction(*args, **kwargs)\n        return resultat.upper() if isinstance(resultat, str) else resultat\n    return wrapper\n\ndef encadrer(caractere):\n    def decorateur(fonction):\n        def wrapper(*args, **kwargs):\n            resultat = fonction(*args, **kwargs)\n            bordure = caractere * (len(str(resultat)) + 4)\n            return f"{bordure}\\n{caractere} {resultat} {caractere}\\n{bordure}"\n        return wrapper\n    return decorateur\n\n@majuscule\ndef saluer(prenom):\n    return f"bonjour {prenom} !"\n\n@encadrer("*")\ndef titre():\n    return "Python est super"\n\nprint(saluer("alice"))\nprint()\nprint(titre())',
+        exercise: {
+          instruction: "Écris un décorateur double qui retourne le résultat de la fonction répété deux fois.\nApplique-le à message() qui retourne 'ping'.\nAffiche message().",
+          starterCode: "def double(fonction):\n    def wrapper(*args, **kwargs):\n        # Appelle la fonction et retourne le résultat × 2\n        pass\n    return wrapper\n\n@double\ndef message():\n    return 'ping'\n\nprint(message())",
+          expectedOutput: "pingping",
+          hints: [
+            "Appelle la fonction avec fonction(*args, **kwargs) pour obtenir le résultat.",
+            "Retourne le résultat concaténé avec lui-même : resultat + resultat",
+            "def double(fonction):\n    def wrapper(*args, **kwargs):\n        r = fonction(*args, **kwargs)\n        return r + r\n    return wrapper",
+          ],
+        },
+      },
+      {
+        title: "Générateurs et yield",
+        description: "Un générateur est une fonction qui produit des valeurs une par une avec yield.\nAu lieu de tout calculer et stocker en mémoire, il génère la valeur suivante à la demande.\nC'est parfait pour traiter de grandes quantités de données sans saturer la mémoire !\nyield met la fonction en pause et reprend au même endroit à l'appel suivant.",
+        code: 'def fibonacci_gen():\n    a, b = 0, 1\n    while True:\n        yield a\n        a, b = b, a + b\n\ndef multiples_de(n, limite):\n    valeur = n\n    while valeur <= limite:\n        yield valeur\n        valeur += n\n\nfrom itertools import islice\n\n# Fibonacci : prendre seulement les 10 premiers\nfibs = list(islice(fibonacci_gen(), 10))\nprint(f"Fibonacci : {fibs}")\n\n# Multiples de 4 jusqu\'à 30\nmult = list(multiples_de(4, 30))\nprint(f"Multiples de 4 : {mult}")\n\n# Expression génératrice : comme une list comprehension mais lazy\npairs_carres = sum(x**2 for x in range(1, 11) if x % 2 == 0)\nprint(f"Somme carrés pairs (1-10) : {pairs_carres}")',
+        exercise: {
+          instruction: "Écris un générateur compter(debut, fin) qui produit les entiers de debut à fin inclus.\nAffiche chaque valeur générée par compter(1, 5) sur une ligne.",
+          starterCode: "def compter(debut, fin):\n    # Utilise yield pour produire chaque valeur\n    pass\n\nfor n in compter(1, 5):\n    print(n)",
+          expectedOutput: "1\n2\n3\n4\n5",
+          hints: [
+            "Utilise une boucle while et yield pour produire chaque valeur.",
+            "Commence avec n = debut, yield n, puis n += 1 jusqu'à fin.",
+            "def compter(debut, fin):\n    n = debut\n    while n <= fin:\n        yield n\n        n += 1",
+          ],
+        },
+      },
+      {
+        title: "Les dataclasses",
+        description: "Une dataclass est un raccourci Python pour créer des classes qui stockent des données.\nAvec @dataclass, Python génère automatiquement __init__, __repr__ et __eq__ !\nTu décris juste les champs et leurs types — Python fait le reste.\nTrès utilisé pour les données structurées : utilisateurs, produits, points, etc.",
+        code: 'from dataclasses import dataclass, field\n\n@dataclass\nclass Joueur:\n    nom: str\n    niveau: int = 1\n    score: int = 0\n    badges: list = field(default_factory=list)\n    \n    def gagner_badge(self, badge):\n        self.badges.append(badge)\n    \n    @property\n    def rang(self):\n        if self.score >= 2000: return "Legend"\n        if self.score >= 1000: return "Expert"\n        return "Novice"\n\n@dataclass(order=True)\nclass Point:\n    x: float = 0.0\n    y: float = 0.0\n    \n    def distance_origine(self):\n        return (self.x**2 + self.y**2) ** 0.5\n\nalice = Joueur("Alice", niveau=3, score=1500)\nalice.gagner_badge("⭐")\nalice.gagner_badge("🚀")\nprint(alice)\nprint(f"Rang : {alice.rang}")\n\np = Point(3.0, 4.0)\nprint(f"\\n{p} → distance = {p.distance_origine()}")',
+        exercise: {
+          instruction: "Crée une dataclass Livre avec les champs titre (str), auteur (str) et pages (int = 0).\nAffiche Livre(titre='Python', auteur='Guido', pages=300).",
+          starterCode: "from dataclasses import dataclass\n\n# Crée la dataclass Livre\n\nprint(Livre(titre='Python', auteur='Guido', pages=300))",
+          expectedOutput: "Livre(titre='Python', auteur='Guido', pages=300)",
+          hints: [
+            "Utilise @dataclass avant la définition de la classe.",
+            "Déclare les champs avec leur type : titre: str, auteur: str, pages: int = 0",
+            "@dataclass\nclass Livre:\n    titre: str\n    auteur: str\n    pages: int = 0",
+          ],
+        },
+      },
+      {
+        title: "Les protocoles Python",
+        description: "Les méthodes spéciales (dunder methods) permettent à tes classes de se comporter comme des types Python natifs !\n__len__ : ton objet répond à len()\n__contains__ : ton objet répond à l'opérateur in\n__iter__ : ton objet peut être parcouru avec for\n__str__ : définit ce que print() affiche\nC'est le secret derrière list, dict, str...",
+        code: 'class Bibliotheque:\n    def __init__(self, nom):\n        self.nom = nom\n        self.livres = []\n    \n    def ajouter(self, titre, auteur):\n        self.livres.append({"titre": titre, "auteur": auteur})\n    \n    def __len__(self):\n        return len(self.livres)\n    \n    def __contains__(self, titre):\n        return any(l["titre"] == titre for l in self.livres)\n    \n    def __iter__(self):\n        return iter(self.livres)\n    \n    def __str__(self):\n        lignes = [f"  📚 {l[\'titre\']} — {l[\'auteur\']}" for l in self.livres]\n        return f"🏠 {self.nom} ({len(self)} livres):\\n" + "\\n".join(lignes)\n\nbib = Bibliotheque("Ma bibliothèque")\nbib.ajouter("Python pour tous", "Guido")\nbib.ajouter("Algorithmes", "Knuth")\nbib.ajouter("Clean Code", "Martin")\n\nprint(bib)\nprint(f"\\nNombre de livres : {len(bib)}")\nprint(f"A \'Algorithmes\' : {\'Algorithmes\' in bib}")\nprint(f"A \'Java\' : {\'Java\' in bib}")',
+        exercise: {
+          instruction: "Crée une classe Classe avec __len__ qui retourne le nombre d'élèves.\nCrée une classe avec 3 élèves et affiche len(ma_classe).",
+          starterCode: "class Classe:\n    def __init__(self):\n        self.eleves = []\n    \n    def ajouter(self, nom):\n        self.eleves.append(nom)\n    \n    # Implémente __len__\n\nma_classe = Classe()\nma_classe.ajouter('Alice')\nma_classe.ajouter('Bob')\nma_classe.ajouter('Charlie')\nprint(len(ma_classe))",
+          expectedOutput: "3",
+          hints: [
+            "Ajoute def __len__(self): dans la classe.",
+            "Retourne le nombre d'éléments dans self.eleves avec len().",
+            "def __len__(self):\n    return len(self.eleves)",
+          ],
+        },
+      },
+      {
+        title: "Mini-projet : Système de réservation",
+        description: "On combine les dataclasses, l'héritage et les méthodes spéciales pour créer un vrai système de réservation !\nLa propriété @property calcule une valeur dynamiquement sans mémoriser.\nOn utilise des type hints (list[Billet]) pour rendre le code lisible.\nC'est la façon dont fonctionnent les sites de billetterie !",
+        code: 'from dataclasses import dataclass, field\n\n@dataclass\nclass Billet:\n    spectateur: str\n    places: int\n    \n    def __str__(self):\n        s = "s" if self.places > 1 else ""\n        return f"{self.spectateur} ({self.places} place{s})"\n\nclass Salle:\n    def __init__(self, nom, capacite):\n        self.nom = nom\n        self.capacite = capacite\n        self.billets: list = []\n    \n    @property\n    def places_prises(self):\n        return sum(b.places for b in self.billets)\n    \n    @property\n    def places_libres(self):\n        return self.capacite - self.places_prises\n    \n    def reserver(self, spectateur, places):\n        if places > self.places_libres:\n            print(f"❌ Plus assez de places ! ({self.places_libres} restantes)")\n            return\n        self.billets.append(Billet(spectateur, places))\n        print(f"✅ Réservé pour {spectateur} : {places} place(s)")\n    \n    def bilan(self):\n        print(f"\\n🎥 {self.nom} — {self.places_libres}/{self.capacite} places libres")\n        for b in self.billets:\n            print(f"  • {b}")\n\nsalle = Salle("Grand Rex", 20)\nsalle.reserver("Alice", 2)\nsalle.reserver("Classe 6B", 15)\nsalle.reserver("Bob", 5)\nsalle.reserver("Bob", 3)\nsalle.bilan()',
+      },
+    ],
+  },
+  "7": {
+    id: 7,
+    emoji: "🔬",
+    name: "Chercheur",
+    color: "from-teal-500 to-cyan-600",
+    lessons: [
+      {
+        title: "Le module statistics",
+        description: "Python a un module statistics qui calcule tout ce dont tu as besoin pour analyser des données !\nmean() = la moyenne (somme / nombre)\nmedian() = la valeur du milieu (insensible aux extrêmes)\nstdev() = l'écart-type (mesure la dispersion)\nmode() = la valeur la plus fréquente\nCes outils sont utilisés par les data scientists chaque jour !",
+        code: 'import statistics\n\ntemperatures = [15.2, 18.5, 22.1, 19.8, 16.4, 20.3, 23.7, 17.9, 21.2, 18.8,\n                14.5, 19.1, 22.8, 20.5, 17.3]\n\nprint("🌡️ ANALYSE DES TEMPÉRATURES")\nprint("=" * 35)\nprint(f"Nombre de mesures : {len(temperatures)}")\nprint(f"T° min           : {min(temperatures):.1f}°C")\nprint(f"T° max           : {max(temperatures):.1f}°C")\nprint(f"Moyenne          : {statistics.mean(temperatures):.2f}°C")\nprint(f"Médiane          : {statistics.median(temperatures):.1f}°C")\nprint(f"Écart-type       : {statistics.stdev(temperatures):.2f}°C")\n\ntranches = [0, 0, 0, 0]\nfor t in temperatures:\n    if t < 16:   tranches[0] += 1\n    elif t < 18: tranches[1] += 1\n    elif t < 21: tranches[2] += 1\n    else:        tranches[3] += 1\n\nlabels = ["<16°", "16-18°", "18-21°", ">21°"]\nprint("\\nDistribution :")\nfor label, count in zip(labels, tranches):\n    bar = "█" * count\n    print(f"  {label:7} {bar} ({count})")',
+        exercise: {
+          instruction: "Utilise statistics pour calculer la moyenne et la médiane de [10, 20, 30, 40, 50].\nAffiche la moyenne sur une ligne, la médiane sur la suivante.",
+          starterCode: "import statistics\nnombres = [10, 20, 30, 40, 50]\n# Affiche la moyenne puis la médiane\n",
+          expectedOutput: "30.0\n30",
+          hints: [
+            "statistics.mean(liste) calcule la moyenne.",
+            "statistics.median(liste) calcule la médiane.",
+            "print(statistics.mean(nombres))\nprint(statistics.median(nombres))",
+          ],
+        },
+        quiz: {
+          questions: [
+            {
+              question: "Quelle est la différence entre moyenne et médiane ?",
+              options: [
+                "Il n'y a aucune différence",
+                "La médiane est toujours plus grande",
+                "La moyenne est influencée par les extrêmes, la médiane non",
+                "La moyenne est toujours entière",
+              ],
+              correct: 2,
+              explanation: "La médiane est la valeur centrale — elle n'est pas affectée par les valeurs extrêmes.",
+            },
+            {
+              question: "Que mesure l'écart-type ?",
+              options: ["La valeur maximale", "La valeur centrale", "La dispersion des données autour de la moyenne", "Le nombre de données"],
+              correct: 2,
+              explanation: "Un écart-type faible = données proches de la moyenne. Un grand écart-type = données très dispersées.",
+            },
+          ],
+        },
+      },
+      {
+        title: "Le module itertools",
+        description: "itertools est une boîte à outils pour travailler avec des itérables de façon élégante et efficace !\ncombinations() : toutes les combinaisons possibles\npermutations() : toutes les permutations\nchain() : fusionner plusieurs listes\ncycle() : répéter indéfiniment\naccumulate() : valeurs cumulées\nCes outils sont au cœur de l'algorithmique Python !",
+        code: 'import itertools\n\n# combinations : toutes les paires d\'une équipe\nequipe = ["Alice", "Bob", "Charlie", "Diana"]\nduos = list(itertools.combinations(equipe, 2))\nprint(f"Duos possibles ({len(duos)}) :")\nfor a, b in duos:\n    print(f"  {a} & {b}")\n\n# chain : fusionner plusieurs listes\nlistes = [[1, 2, 3], ["a", "b", "c"]]\nfusion = list(itertools.chain(*listes))\nprint(f"\\nFusionnés : {fusion}")\n\n# accumulate : sommes cumulées\nfrom itertools import accumulate\nscores = [10, 15, 8, 20, 5]\ncumul = list(accumulate(scores))\nprint(f"\\nScores : {scores}")\nprint(f"Cumul  : {cumul}")',
+        exercise: {
+          instruction: "Utilise itertools.combinations sur ['A', 'B', 'C'] avec r=2.\nAffiche la liste des combinaisons.",
+          starterCode: "import itertools\nlettres = ['A', 'B', 'C']\n# Affiche toutes les combinaisons de 2\n",
+          expectedOutput: "[('A', 'B'), ('A', 'C'), ('B', 'C')]",
+          hints: [
+            "itertools.combinations(iterable, r) retourne un itérateur de combinaisons.",
+            "Utilise list() pour convertir le résultat en liste affichable.",
+            "print(list(itertools.combinations(lettres, 2)))",
+          ],
+        },
+      },
+      {
+        title: "Le module functools",
+        description: "functools offre des outils pour travailler avec les fonctions de façon avancée !\nreduce() : réduire une liste à une seule valeur\npartial() : fixer certains arguments d'une fonction pour en créer une nouvelle\nlru_cache() : mémoriser les résultats d'une fonction (memoïsation)\nCes outils rendent le code plus expressif et souvent bien plus rapide !",
+        code: 'from functools import reduce, partial, lru_cache\n\n# reduce : calculer en parcourant une liste\nnombres = [1, 2, 3, 4, 5]\nproduit = reduce(lambda a, b: a * b, nombres)\nprint(f"Produit de {nombres} = {produit}")\n\n# partial : spécialiser une fonction\ndef multiplier(a, b):\n    return a * b\n\ndoubler = partial(multiplier, 2)\ntripler = partial(multiplier, 3)\n\nprint(f"\\nDoubler : {[doubler(i) for i in range(1, 6)]}")\nprint(f"Tripler : {[tripler(i) for i in range(1, 6)]}")\n\n# lru_cache : mémoïsation — chaque résultat est mis en cache\n@lru_cache(maxsize=128)\ndef fib(n):\n    if n <= 1: return n\n    return fib(n-1) + fib(n-2)\n\nprint(f"\\nfib(35) = {fib(35)}")\ninfos = fib.cache_info()\nprint(f"Cache : {infos.hits} hits, {infos.misses} misses")',
+        exercise: {
+          instruction: "Utilise partial pour créer fois_cinq à partir d'une fonction multiplier(a, b).\nAffiche list(map(fois_cinq, [1, 2, 3])).",
+          starterCode: "from functools import partial\n\ndef multiplier(a, b):\n    return a * b\n\n# Crée fois_cinq avec partial\n\nprint(list(map(fois_cinq, [1, 2, 3])))",
+          expectedOutput: "[5, 10, 15]",
+          hints: [
+            "partial(fonction, valeur_fixée) crée une nouvelle fonction avec un argument déjà rempli.",
+            "partial(multiplier, 5) fixe a=5, il ne reste qu'à fournir b.",
+            "fois_cinq = partial(multiplier, 5)",
+          ],
+        },
+      },
+      {
+        title: "Traitement de données (CSV)",
+        description: "Le format CSV (valeurs séparées par des virgules) est universel pour les données structurées !\nPython lit les CSV avec csv.DictReader qui retourne des dictionnaires.\nio.StringIO permet de traiter une chaîne comme si c'était un fichier.\nEn combinant CSV + defaultdict, tu peux faire de l'analyse de données comme un vrai data analyst !",
+        code: 'import csv, io\nfrom collections import defaultdict\n\ndonnees = """nom,matiere,note\nAlice,Maths,16\nBob,Maths,12\nAlice,Science,14\nCharlie,Maths,18\nBob,Science,15\nCharlie,Science,11\nAlice,Histoire,17\nBob,Histoire,13\nCharlie,Histoire,16\n"""\n\nlecteur = csv.DictReader(io.StringIO(donnees))\nlignes = list(lecteur)\n\nnotes_eleve = defaultdict(list)\nfor ligne in lignes:\n    notes_eleve[ligne["nom"]].append(int(ligne["note"]))\n\nprint("📊 MOYENNES PAR ÉLÈVE")\nprint("-" * 22)\nfor nom in sorted(notes_eleve):\n    notes = notes_eleve[nom]\n    moy = sum(notes) / len(notes)\n    print(f"  {nom:<10} : {moy:.1f}/20")\n\nmeilleures = defaultdict(lambda: ("", 0))\nfor ligne in lignes:\n    nom, mat, note = ligne["nom"], ligne["matiere"], int(ligne["note"])\n    if note > meilleures[mat][1]:\n        meilleures[mat] = (nom, note)\n\nprint("\\n🏆 MEILLEURE NOTE PAR MATIÈRE")\nprint("-" * 28)\nfor mat, (nom, note) in sorted(meilleures.items()):\n    print(f"  {mat:<12}: {nom} ({note}/20)")',
+        exercise: {
+          instruction: "Lis les données CSV et affiche le nom de l'élève avec le score le plus élevé.",
+          starterCode: "import csv, io\n\ndonnees = \"\"\"nom,score\nAlice,85\nBob,72\nCharlie,91\nDiana,78\n\"\"\"\n\nlecteur = csv.DictReader(io.StringIO(donnees))\neleves = list(lecteur)\n# Trouve et affiche le nom de l'élève avec le meilleur score\n",
+          expectedOutput: "Charlie",
+          hints: [
+            "Utilise max() avec une key= pour trouver l'élève avec le score max.",
+            "Les scores sont des chaînes — utilise int() pour les comparer numériquement.",
+            "meilleur = max(eleves, key=lambda e: int(e['score']))\nprint(meilleur['nom'])",
+          ],
+        },
+      },
+      {
+        title: "Algorithmes de recherche",
+        description: "Deux façons de chercher un élément dans une liste :\nRecherche linéaire : on parcourt tout depuis le début — O(n)\nRecherche binaire : on coupe en deux à chaque fois — O(log n)\nSur 1 000 000 d'éléments, la recherche binaire prend ~20 comparaisons là où la linéaire en fait 500 000 en moyenne !\nMais la recherche binaire nécessite une liste triée.",
+        code: 'def recherche_lineaire(liste, cible):\n    for i, val in enumerate(liste):\n        if val == cible:\n            return i, i + 1\n    return -1, len(liste)\n\ndef recherche_binaire(liste, cible):\n    g, d, etapes = 0, len(liste) - 1, 0\n    while g <= d:\n        etapes += 1\n        m = (g + d) // 2\n        if liste[m] == cible:\n            return m, etapes\n        elif liste[m] < cible:\n            g = m + 1\n        else:\n            d = m - 1\n    return -1, etapes\n\nnombres = list(range(0, 100, 2))  # 50 nombres pairs : 0, 2, 4, ..., 98\ncible = 76\n\nidx_lin, comp_lin = recherche_lineaire(nombres, cible)\nidx_bin, comp_bin = recherche_binaire(nombres, cible)\n\nprint(f"Recherche de {cible} dans {len(nombres)} éléments")\nprint(f"Linéaire : {comp_lin} comparaisons → index {idx_lin}")\nprint(f"Binaire  : {comp_bin} comparaisons → index {idx_bin}")\nprint(f"Gain : {comp_lin // comp_bin}× plus rapide")',
+        exercise: {
+          instruction: "Implémente la recherche binaire sur [10, 20, 30, 40, 50] pour trouver 30.\nAffiche son index.",
+          starterCode: "def recherche_binaire(liste, cible):\n    g, d = 0, len(liste) - 1\n    while g <= d:\n        m = (g + d) // 2\n        if liste[m] == cible:\n            return m\n        elif liste[m] < cible:\n            g = m + 1\n        else:\n            d = m - 1\n    return -1\n\nnombres = [10, 20, 30, 40, 50]\nprint(recherche_binaire(nombres, 30))",
+          expectedOutput: "2",
+          hints: [
+            "La recherche binaire compare la valeur du milieu (m = (g+d)//2) avec la cible.",
+            "Si liste[m] < cible, cherche à droite : g = m + 1. Sinon cherche à gauche : d = m - 1.",
+            "Le code est déjà là — exécute-le pour voir le résultat !",
+          ],
+        },
+      },
+      {
+        title: "Mini-projet : Analyseur de données scientifiques",
+        description: "On combine statistics, itertools et CSV pour créer un vrai analyseur de données !\nOn analyse deux groupes expérimentaux, on compare leurs statistiques, et on produit un rapport.\nLe coefficient de variation (CV = écart-type / moyenne × 100) mesure la stabilité relative.\nC'est ce que font les scientifiques pour comparer des expériences !",
+        code: 'import statistics\nfrom itertools import groupby\n\nexperiences = [\n    ("Groupe A", [14.2, 15.1, 13.8, 15.5, 14.7, 15.0, 14.3, 15.2, 14.9, 15.1]),\n    ("Groupe B", [12.1, 18.5, 13.2, 17.8, 14.5, 16.2, 13.8, 17.1, 14.1, 16.9]),\n]\n\ndef analyser(nom, donnees):\n    moy = statistics.mean(donnees)\n    med = statistics.median(donnees)\n    std = statistics.stdev(donnees)\n    cv  = std / moy * 100\n    stable = "✅ stable" if cv < 5 else "⚠️ variable"\n    print(f"📊 {nom} ({len(donnees)} mesures)")\n    print(f"   Plage       : {min(donnees):.1f} – {max(donnees):.1f}")\n    print(f"   Moyenne     : {moy:.2f} | Médiane : {med:.2f}")\n    print(f"   Écart-type  : {std:.3f} | CV : {cv:.1f}% — {stable}")\n\nfor nom, donnees in experiences:\n    analyser(nom, donnees)\n    print()\n\nnoms = [nom for nom, _ in experiences]\nstds = [statistics.stdev(d) for _, d in experiences]\nmeilleur = noms[stds.index(min(stds))]\nprint(f"🔬 {meilleur} est le groupe le plus stable")',
       },
     ],
   },

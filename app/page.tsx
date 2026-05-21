@@ -1,4 +1,7 @@
 import Link from "next/link";
+import { CHALLENGES } from "@/lib/challenges";
+import { LEVELS } from "@/lib/levels";
+import { LEVELS_DATA } from "@/lib/lessons";
 import BadgeDisplay from "@/components/BadgeDisplay";
 import AppHeader from "@/components/AppHeader";
 import AdventureMap from "@/components/AdventureMap";
@@ -14,6 +17,7 @@ import DailyReward from "@/components/DailyReward";
 import HomeBanner from "@/components/HomeBanner";
 import HomeCoffresWidget from "@/components/HomeCoffresWidget";
 import HomeQuestsWidget from "@/components/HomeQuestsWidget";
+import HomeWeeklyWidget from "@/components/HomeWeeklyWidget";
 import HomeProgressWidget from "@/components/HomeProgressWidget";
 
 export default function Home() {
@@ -56,9 +60,9 @@ export default function Home() {
       <section className="w-full px-6 pb-8">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl mx-auto">
           {[
-            { value: "6", label: "niveaux", emoji: "📚" },
-            { value: "36", label: "leçons", emoji: "✏️" },
-            { value: "21", label: "défis", emoji: "🎯" },
+            { value: String(LEVELS.length), label: "niveaux", emoji: "📚" },
+            { value: String(Object.values(LEVELS_DATA).reduce((a, l) => a + l.lessons.length, 0)), label: "leçons", emoji: "✏️" },
+            { value: String(CHALLENGES.length), label: "défis", emoji: "🎯" },
           ].map((stat) => (
             <div key={stat.label} className="bg-white dark:bg-slate-800 rounded-2xl p-6 text-center shadow-sm border border-purple-50 dark:border-slate-700">
               <div className="text-3xl mb-2">{stat.emoji}</div>
@@ -82,6 +86,9 @@ export default function Home() {
 
       {/* Quêtes du jour */}
       <HomeQuestsWidget />
+
+      {/* Quêtes de la semaine */}
+      <HomeWeeklyWidget />
 
       {/* Reprendre + Défi du jour */}
       <HomeResume />
@@ -126,7 +133,7 @@ export default function Home() {
             <div className="bg-white dark:bg-slate-800 border-2 border-green-200 dark:border-green-800 rounded-2xl p-6 hover:shadow-lg hover:-translate-y-1 transition-all cursor-pointer text-center">
               <div className="text-4xl mb-2">🎮</div>
               <h3 className="font-bold text-gray-800 dark:text-white mb-1">Espace Détente</h3>
-              <p className="text-xs text-gray-500 dark:text-slate-400">Joue à Snake et gagne des 💎 !</p>
+              <p className="text-xs text-gray-500 dark:text-slate-400">Snake, Memory, Wordle et 💎 !</p>
             </div>
           </Link>
         </div>
