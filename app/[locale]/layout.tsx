@@ -47,6 +47,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       canonical: `/${locale}`,
       languages: { fr: "/fr", en: "/en" },
     },
+    verification: {
+      google: "ULuOkCnKL5cAo90USvzyVXo9IyKiX73xKDA5DEH-04Q",
+    },
   };
 }
 
