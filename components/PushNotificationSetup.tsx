@@ -26,7 +26,7 @@ export default function PushNotificationSetup() {
   }, []);
 
   if (dismissed || state === "granted" || state === "denied") return null;
-  if (!("serviceWorker" in navigator) || !("PushManager" in window)) return null;
+  if (typeof navigator === "undefined" || !("serviceWorker" in navigator) || !("PushManager" in window)) return null;
 
   const enable = async () => {
     setState("loading");
