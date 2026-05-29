@@ -14,6 +14,9 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   manifest: "/manifest.json",
+  verification: {
+    google: "ULuOkCnKL5cAo90USvzyVXo9IyKiX73xKDA5DEH-04Q",
+  },
 };
 
 export default function RootLayout({
